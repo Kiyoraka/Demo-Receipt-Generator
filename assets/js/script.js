@@ -1,6 +1,37 @@
 // Application State
-let customers = [];
-let receiptCounter = 1;
+let customers = [
+    {
+        name: "John Smith",
+        date: "2025-06-20",
+        timestamp: "2025-06-20T10:30:45.000Z",
+        receiptNumber: "RCP123456001"
+    },
+    {
+        name: "Emily Johnson",
+        date: "2025-06-21",
+        timestamp: "2025-06-21T09:15:22.000Z",
+        receiptNumber: "RCP123456002"
+    },
+    {
+        name: "Michael Williams",
+        date: "2025-06-19",
+        timestamp: "2025-06-19T14:45:10.000Z",
+        receiptNumber: "RCP123456003"
+    },
+    {
+        name: "Sarah Davis",
+        date: "2025-06-21",
+        timestamp: "2025-06-21T11:05:33.000Z",
+        receiptNumber: "RCP123456004"
+    },
+    {
+        name: "Robert Brown",
+        date: "2025-06-18",
+        timestamp: "2025-06-18T16:20:18.000Z",
+        receiptNumber: "RCP123456005"
+    }
+];
+let receiptCounter = 6; // Start counter after sample data
 
 // Initialize the application
 document.addEventListener('DOMContentLoaded', function() {
@@ -210,10 +241,12 @@ function createReceiptHTML(data) {
 }
 
 function addCustomer(name) {
+    const receiptNum = document.getElementById('receipt-number').value;
     const customer = {
         name: name,
         date: new Date().toISOString().split('T')[0],
-        timestamp: new Date().toISOString()
+        timestamp: new Date().toISOString(),
+        receiptNumber: receiptNum
     };
     
     // Check if customer already exists
@@ -221,7 +254,7 @@ function addCustomer(name) {
     if (existingIndex === -1) {
         customers.push(customer);
     } else {
-        customers[existingIndex] = customer; // Update timestamp
+        customers[existingIndex] = customer; // Update timestamp and receipt
     }
 }
 
@@ -236,17 +269,35 @@ function updateCustomerList() {
         return;
     }
     
-    customerList.innerHTML = customers
-        .sort((a, b) => new Date(b.timestamp) - new Date(a.timestamp))
-        .map(customer => `
-            <div class="name-item">
-                <div>
-                    <div class="name-text">${customer.name}</div>
-                    <div class="name-date">Last receipt: ${customer.date}</div>
-                </div>
-                <button class="btn btn-danger" style="padding: 0.25rem 0.5rem; font-size: 0.8rem;" onclick="removeCustomer('${customer.name}')">Remove</button>
-            </div>
-        `).join('');
+    // Create table structure
+    const tableHTML = `
+        <table class="customer-table">
+            <thead>
+                <tr>
+                    <th>Customer Name</th>
+                    <th>Receipt Number</th>
+                    <th>Date</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                ${customers
+                    .sort((a, b) => new Date(b.timestamp) - new Date(a.timestamp))
+                    .map(customer => `
+                        <tr>
+                            <td>${customer.name}</td>
+                            <td>${customer.receiptNumber || 'N/A'}</td>
+                            <td>${customer.date}</td>
+                            <td>
+                                <button class="btn btn-danger" style="padding: 0.25rem 0.5rem; font-size: 0.8rem;" onclick="removeCustomer('${customer.name}')">Remove</button>
+                            </td>
+                        </tr>
+                    `).join('')}
+            </tbody>
+        </table>
+    `;
+    
+    customerList.innerHTML = tableHTML;
 }
 
 function removeCustomer(name) {
