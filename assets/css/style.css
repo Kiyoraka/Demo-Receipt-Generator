@@ -296,18 +296,7 @@ body {
 
 /* Duplicate name-list declaration removed */
 
-@media (max-width: 768px) {
-    .customer-table {
-        display: block;
-        overflow-x: auto;
-    }
-    
-    .customer-table th, 
-    .customer-table td {
-        padding: 1rem 0.75rem;
-        font-size: 1rem;
-    }
-}
+/* Customer table mobile styles moved to mobile.css */
 
 .receipt-preview {
     border: 2px dashed #ccc;
@@ -364,27 +353,4 @@ body {
     line-height: 1.5;
 }
 
-@media (max-width: 768px) {
-    .dashboard {
-        flex-direction: column;
-    }
-    
-    .sidebar {
-        width: 100%;
-        padding: 1rem 0;
-    }
-    
-    .nav-menu {
-        display: flex;
-        overflow-x: auto;
-    }
-    
-    .nav-item {
-        margin-right: 1rem;
-        margin-bottom: 0;
-    }
-    
-    .form-row {
-        grid-template-columns: 1fr;
-    }
-}
+/* Mobile styles moved to mobile.css for better organization */
