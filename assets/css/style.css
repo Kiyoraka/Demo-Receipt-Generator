@@ -73,10 +73,25 @@ body {
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
     max-width: 900px;
     margin: 0 auto;
+    height: calc(100vh - 4rem);
+    overflow-y: auto;
 }
 
 .page.active {
     display: block;
+}
+
+/* Customer List page should fill the remaining space */
+#list.page {
+    max-width: none;
+    width: 100%;
+    margin: 0;
+    height: calc(100vh - 4rem);
+}
+
+#list.page.active {
+    display: flex;
+    flex-direction: column;
 }
 
 .page-header {
@@ -200,6 +215,15 @@ body {
     border-radius: 8px;
     padding: 0.5rem;
     max-height: 600px;
+    overflow-y: auto;
+}
+
+/* Customer list container should fill remaining space */
+#customer-list {
+    flex: 1;
+    min-height: 400px;
+    max-height: none;
+    height: calc(100vh - 300px);
     overflow-y: auto;
 }
 
