@@ -418,38 +418,4 @@
     }
 }
 
-/* Dark mode support for mobile */
-@media (prefers-color-scheme: dark) and (max-width: 768px) {
-    
-    .sidebar {
-        background: rgba(40, 40, 40, 0.95);
-    }
-    
-    .nav-link {
-        color: #e0e0e0;
-    }
-    
-    .nav-link:hover, .nav-link.active {
-        background: rgba(102, 126, 234, 0.2);
-        color: #667eea;
-    }
-    
-    .page {
-        background: #2a2a2a;
-        color: #e0e0e0;
-    }
-    
-    .form-input {
-        background: #3a3a3a;
-        border-color: #555;
-        color: #e0e0e0;
-    }
-    
-    .customer-table {
-        background: #2a2a2a;
-    }
-    
-    .customer-table td {
-        border-color: #555;
-    }
-} 
+/* Consistent color scheme maintained across all devices */ 
