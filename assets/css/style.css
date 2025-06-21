@@ -198,8 +198,8 @@ body {
 .name-list {
     background: #f8f9fa;
     border-radius: 8px;
-    padding: 1rem;
-    max-height: 400px;
+    padding: 0.5rem;
+    max-height: 600px;
     overflow-y: auto;
 }
 
@@ -276,10 +276,7 @@ body {
     text-align: center;
 }
 
-.name-list {
-    padding: 0;
-    max-height: 600px; /* Increased height */
-}
+/* Duplicate name-list declaration removed */
 
 @media (max-width: 768px) {
     .customer-table {
