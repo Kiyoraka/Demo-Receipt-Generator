@@ -223,6 +223,61 @@ body {
     color: #666;
 }
 
+/* Customer Table Styles */
+.customer-table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.customer-table thead {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+}
+
+.customer-table th {
+    padding: 1rem;
+    text-align: left;
+    font-weight: 600;
+}
+
+.customer-table td {
+    padding: 0.75rem 1rem;
+    border-bottom: 1px solid #e1e5e9;
+}
+
+.customer-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.customer-table tbody tr:hover {
+    background-color: #f8f9ff;
+}
+
+.customer-table tbody tr:nth-child(even) {
+    background-color: #f8f9fa;
+}
+
+.customer-table tbody tr:nth-child(even):hover {
+    background-color: #f1f3fa;
+}
+
+@media (max-width: 768px) {
+    .customer-table {
+        display: block;
+        overflow-x: auto;
+    }
+    
+    .customer-table th, 
+    .customer-table td {
+        padding: 0.75rem 0.5rem;
+        font-size: 0.9rem;
+    }
+}
+
 .receipt-preview {
     border: 2px dashed #ccc;
     padding: 2rem;
